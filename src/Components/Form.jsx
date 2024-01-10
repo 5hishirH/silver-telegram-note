@@ -7,7 +7,7 @@ const Form = ({ type, note, setNote, handleNote, submitting }) => {
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text text-4xl text-secondary font-medium">
-              Create Note
+              {type} Note
             </span>
           </div>
           <textarea
@@ -25,7 +25,7 @@ const Form = ({ type, note, setNote, handleNote, submitting }) => {
             disabled={submitting}
           >
             {submitting ? (
-              <span className="flex items-center">
+              <span className="flex items-center gap-3">
                 <span className="loading loading-spinner text-secondary"></span>{" "}
                 {type === "Create" ? "Creating" : "Updating"}
               </span>

@@ -14,19 +14,15 @@ const CreateNote = () => {
   const handleNote = (e) => {
     e.preventDefault();
     console.log(note);
-    setSubmitting(true)
+    setSubmitting(true);
     axiosSecure
-      .post(
-        "/notes",
-        {
-          note: note.note,
-          userEmail: user?.email,
-        },
-        { withCredentials: true }
-      )
+      .post("/notes", {
+        note: note.note,
+        userEmail: user?.email,
+      })
       .then((res) => {
         console.log(res);
-        setSubmitting(false)
+        setSubmitting(false);
         navigate("/");
       })
       .catch(function (error) {

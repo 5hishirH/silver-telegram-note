@@ -3,7 +3,7 @@ import React from "react";
 
 const useAxiosSecure = () =>
   axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://note-server-one.vercel.app",
     withCredentials: true,
   });
 

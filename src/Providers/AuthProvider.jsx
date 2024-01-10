@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
     handleGoogleUser,
     handleSignOut,
     linkon,
-    noteloading
+    noteloading,
   };
 
   useEffect(() => {
@@ -77,11 +77,10 @@ const AuthProvider = ({ children }) => {
             setNoteLoading(false);
           });
       } else {
-        axiosSecure
-          .post("/logout", loggedUser)
-          .then((res) => {
-            console.log("from frontend", res.data);
-          });
+        axiosSecure.post("/logout", loggedUser).then((res) => {
+          console.log("from frontend", res.data);
+          setNoteLoading(true);
+        });
       }
     });
     return () => {

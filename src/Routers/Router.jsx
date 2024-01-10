@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import PrivatePage from "../Pages/PrivatePage/PrivatePage";
 import CreateNote from "../Pages/CreateNote/CreateNote";
+import EditNote from "../Pages/EditNote/EditNote";
 
 const Router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const Router = createBrowserRouter([
       {
         path: "/create-note",
         element: <CreateNote />,
+      },
+      {
+        path: "/edit-note/:id",
+        element: <EditNote />,
       },
     ],
   },
