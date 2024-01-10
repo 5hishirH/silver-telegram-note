@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "../../Components/Nav";
+import Feed from "../../Components/Feed";
 
 const Home = () => {
   return (
-    <div>
-      Home
+    <div className="w-3/5 mx-auto mt-20">
+      <Feed />
     </div>
   );
 };

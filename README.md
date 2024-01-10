@@ -1,8 +1,22 @@
-# React + Vite
+#### Create a react app named "my-react-app" using vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```sh
+create vite@latest my-react-app -- --template react
+```
 
-Currently, two official plugins are available:
+#### Enter into the project folder
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+cd frontend
+```
+
+#### Install react and tailwind with autoprefixer
+```sh
+npm install -D tailwindcss postcss autoprefixer
+```
+
+#### To install react-router-dom, firebase, axios, sweetalert2, react-toastify, react-icons
+
+```sh
+npm i react-router-dom firebase axios sweetalert2 react-toastify react-icons
+```

@@ -12,11 +12,11 @@ const PrivatePage = ({ children }) => {
         <span className="loading loading-spinner loading-lg text-primary"></span>
       </div>
     );
-  }
-  else if (user?.email) {
+  } else if (user?.email) {
     return children;
+  } else {
+    return <Navigate state={location.pathname} to="/login" replace></Navigate>;
   }
-  return <Navigate state={location.pathname} to="/login" replace></Navigate>;
 };
 
 export default PrivatePage;

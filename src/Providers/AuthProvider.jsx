@@ -10,12 +10,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import useAxiosSecure from "../CustomHooks/useAxiosSecure";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+  const axiosSecure = useAxiosSecure();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [noteloading, setNoteLoading] = useState(true);
   const linkon = true;
 
   // sign up
@@ -51,13 +54,35 @@ const AuthProvider = ({ children }) => {
     handleSignInWithEmailAndPassword,
     handleGoogleUser,
     handleSignOut,
-    linkon
+    linkon,
+    noteloading
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
       setUser(currentUser);
       setLoading(false);
+      if (currentUser) {
+        axiosSecure
+          .post("/users", {
+            email: currentUser.email,
+            username: currentUser.displayName,
+            profilePic: currentUser.photoURL,
+          })
+          //don't forget to import axios
+          .then((res) => {
+            console.log("token response", res.data);
+            setNoteLoading(false);
+          });
+      } else {
+        axiosSecure
+          .post("http://localhost:5000/logout", loggedUser)
+          .then((res) => {
+            console.log("from frontend", res.data);
+          });
+      }
     });
     return () => {
       unSubscribe();

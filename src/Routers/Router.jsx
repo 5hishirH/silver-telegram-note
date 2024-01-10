@@ -3,6 +3,7 @@ import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import PrivatePage from "../Pages/PrivatePage/PrivatePage";
+import CreateNote from "../Pages/CreateNote/CreateNote";
 
 const Router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/create-note",
+        element: <CreateNote />,
       },
     ],
   },
