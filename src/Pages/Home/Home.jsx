@@ -3,7 +3,7 @@ import Feed from "../../Components/Feed";
 
 const Home = () => {
   return (
-    <div className="w-3/5 mx-auto mt-20">
+    <div className="w-3/5 mx-auto mt-20 mb-28">
       <Feed />
     </div>
   );

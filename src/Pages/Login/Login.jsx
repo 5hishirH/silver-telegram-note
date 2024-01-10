@@ -1,6 +1,5 @@
 import React from "react";
 import useAuthContext from "../../CustomHooks/useAuthContext";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {

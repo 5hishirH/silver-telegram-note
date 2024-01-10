@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ note, setNote, handleNote }) => {
+const Form = ({ type, note, setNote, handleNote, submitting }) => {
   return (
     <div>
       <form onSubmit={handleNote}>
@@ -15,11 +15,23 @@ const Form = ({ note, setNote, handleNote }) => {
             onChange={(e) => setNote({ ...note, note: e.target.value })}
             className="textarea textarea-bordered h-24"
             placeholder="Type your note here"
+            required
           ></textarea>
         </label>
         <div className="flex justify-end">
-          <button type="submit" className="btn btn-primary mt-6">
-            Create
+          <button
+            type="submit"
+            className="btn btn-primary mt-6"
+            disabled={submitting}
+          >
+            {submitting ? (
+              <span className="flex items-center">
+                <span className="loading loading-spinner text-secondary"></span>{" "}
+                {type === "Create" ? "Creating" : "Updating"}
+              </span>
+            ) : (
+              type
+            )}
           </button>
         </div>
       </form>

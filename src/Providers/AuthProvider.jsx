@@ -78,7 +78,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axiosSecure
-          .post("http://localhost:5000/logout", loggedUser)
+          .post("/logout", loggedUser)
           .then((res) => {
             console.log("from frontend", res.data);
           });
