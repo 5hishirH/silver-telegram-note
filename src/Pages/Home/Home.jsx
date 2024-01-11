@@ -21,7 +21,7 @@ const Home = () => {
     setToast(false);
   }
   return (
-    <div className="w-10/12 sm:w-3/5 mx-auto mt-28 sm:mt-20 mb-28">
+    <div className="w-10/12 sm:w-3/5 mx-auto mt-28 mb-16">
       <ToastContainer />
       <Feed />
     </div>

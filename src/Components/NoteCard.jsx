@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NoteCard = ({ note, handleDelete }) => {
   return (
-    <div className="w-full mt-8">
+    <div className="w-full mt-9">
       <p>{note.note}</p>
       <div className="flex items-center gap-4 mt-2">
         <Link

@@ -1,19 +1,28 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAuthContext from "../CustomHooks/useAuthContext";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { FaHome } from "react-icons/fa";
+import { MdOutlineNoteAdd } from "react-icons/md";
 
 const Nav = () => {
   const { user, handleSignOut } = useAuthContext();
 
   const nav_links = [
     {
-      name: "Home",
+      name: (
+        <>
+          <FaHome /> Home
+        </>
+      ),
       path: "/",
     },
     {
-      name: "Create Note",
+      name: (
+        <>
+          <MdOutlineNoteAdd /> Create Note
+        </>
+      ),
       path: "/create-note",
     },
   ];
@@ -40,7 +49,7 @@ const Nav = () => {
       {/* desktop navigation */}
       <div className="hidden sm:flex navbar fixed top-0 bg-base-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         <div className="navbar-start">
-          <Link to={"/"} className="flex items-center gap-2">
+          <Link to={"/"} className="flex items-center gap-2 px-1">
             <div className="w-6 h-6">
               <img
                 src="/note-icon.png"
@@ -52,7 +61,7 @@ const Nav = () => {
           </Link>
         </div>
         <div className="navbar-center">
-          <ul className="flex gap-6">
+          <ul className="flex gap-6 font-medium">
             {nav_links?.map((e, i) => (
               <NavLink
                 key={i}
@@ -61,11 +70,11 @@ const Nav = () => {
                   isPending
                     ? "pending"
                     : isActive
-                    ? "text-primary font-medium"
+                    ? "text-primary"
                     : ""
                 }
               >
-                {e.name}
+                <span className="flex items-center gap-2">{e.name}</span>
               </NavLink>
             ))}
           </ul>
