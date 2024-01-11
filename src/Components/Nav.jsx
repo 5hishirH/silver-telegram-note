@@ -38,7 +38,7 @@ const Nav = () => {
   return (
     <div>
       {/* desktop navigation */}
-      <div className="hidden sm:block navbar bg-base-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+      <div className="hidden sm:flex navbar fixed top-0 bg-base-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         <div className="navbar-start">
           <Link to={"/"} className="flex items-center gap-2">
             <div className="w-6 h-6">
