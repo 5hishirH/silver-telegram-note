@@ -85,7 +85,7 @@ const Nav = () => {
         </div>
       </div>
       {/* mobile navigation */}
-      <div className="sm:hidden px-3 fixed top-0 navbar bg-base-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+      <div className="sm:hidden px-4 fixed top-0 navbar bg-base-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         <div className="flex-1">
           <Link to={"/"} className="flex items-center gap-2 px-2">
             <div className="w-6 h-6">

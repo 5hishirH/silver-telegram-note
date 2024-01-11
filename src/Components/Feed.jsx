@@ -3,7 +3,6 @@ import NoteCard from "./NoteCard";
 import useAxiosSecure from "../CustomHooks/useAxiosSecure";
 import useAuthContext from "../CustomHooks/useAuthContext";
 import Swal from "sweetalert2";
-import "react-toastify/dist/ReactToastify.css";
 
 const Feed = () => {
   const { noteloading, setToast } = useAuthContext();
@@ -50,7 +49,6 @@ const Feed = () => {
 
   return (
     <div className="w-full">
-      {/* <ToastContainer /> */}
       {notes?.map((e, i) => (
         <NoteCard key={i} note={e} handleDelete={handleDelete} />
       ))}

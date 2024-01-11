@@ -13,7 +13,7 @@ const Form = ({ type, note, setNote, handleNote, submitting }) => {
           <textarea
             value={note.note}
             onChange={(e) => setNote({ ...note, note: e.target.value })}
-            className="textarea textarea-bordered h-24"
+            className="textarea textarea-bordered h-40"
             placeholder="Type your note here"
             required
           ></textarea>

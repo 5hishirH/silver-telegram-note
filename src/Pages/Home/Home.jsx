@@ -9,7 +9,7 @@ const Home = () => {
   if (handleToast) {
     toast.success(handleToast, {
       position: "top-center",
-      autoClose: 1500,
+      autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,

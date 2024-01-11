@@ -31,7 +31,7 @@ const CreateNote = () => {
       });
   };
   return (
-    <div className="w-1/3 mx-auto mt-28">
+    <div className="w-10/12 sm:w-1/3 mx-auto mt-28">
       <Form
         type="Create"
         note={note}
