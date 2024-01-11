@@ -7,7 +7,7 @@ import useAxiosSecure from "../../CustomHooks/useAxiosSecure";
 const CreateNote = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
-  const { user } = useAuthContext();
+  const { user, setToast } = useAuthContext();
   const [submitting, setSubmitting] = useState(false);
   const [note, setNote] = useState({ note: "" });
 
@@ -23,6 +23,7 @@ const CreateNote = () => {
       .then((res) => {
         console.log(res);
         setSubmitting(false);
+        setToast("The note is created successfully!");
         navigate("/");
       })
       .catch(function (error) {

@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [noteloading, setNoteLoading] = useState(true);
-  const linkon = true;
+  const [handleToast, setToast] = useState(false);
 
   // sign up
   const handleCreateUserWithEmailAndPassword = (email, password) =>
@@ -54,7 +54,8 @@ const AuthProvider = ({ children }) => {
     handleSignInWithEmailAndPassword,
     handleGoogleUser,
     handleSignOut,
-    linkon,
+    handleToast,
+    setToast,
     noteloading,
   };
 

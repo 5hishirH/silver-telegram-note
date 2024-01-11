@@ -3,11 +3,10 @@ import NoteCard from "./NoteCard";
 import useAxiosSecure from "../CustomHooks/useAxiosSecure";
 import useAuthContext from "../CustomHooks/useAuthContext";
 import Swal from "sweetalert2";
-import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Feed = () => {
-  const { noteloading } = useAuthContext();
+  const { noteloading, setToast } = useAuthContext();
   const axiosSecure = useAxiosSecure();
   const [notes, setNotes] = useState([]);
   const [reData, setReData] = useState(false);
@@ -39,18 +38,8 @@ const Feed = () => {
         axiosSecure
           .delete(`/notes/${i}`)
           .then(() => {
-            toast.success("The note is deleted successfully!", {
-              position: "top-center",
-              autoClose: 1500,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: false,
-              progress: undefined,
-              transition: Zoom,
-              theme: "light",
-            });
             setReData(!reData);
+            setToast("The note is deleted successfully");
           })
           .catch((err) => {
             console.log(err);
@@ -58,9 +47,10 @@ const Feed = () => {
       }
     });
   };
+
   return (
     <div className="w-full">
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {notes?.map((e, i) => (
         <NoteCard key={i} note={e} handleDelete={handleDelete} />
       ))}
