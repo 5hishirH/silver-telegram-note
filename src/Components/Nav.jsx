@@ -82,7 +82,7 @@ const Nav = () => {
         <div className="navbar-end flex gap-4">
           <button
             onClick={handleLogOut}
-            className="btn btn-outline btn-warning btn-sm rounded-full"
+            className="btn btn-outline btn-error btn-sm rounded-full"
           >
             Sign Out
           </button>
