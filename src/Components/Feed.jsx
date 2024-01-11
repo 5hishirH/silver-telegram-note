@@ -9,12 +9,14 @@ const Feed = () => {
   const axiosSecure = useAxiosSecure();
   const [notes, setNotes] = useState([]);
   const [reData, setReData] = useState(false);
+  const [dataLoading, setDataLoading] = useState(false);
 
   useEffect(() => {
     if (!noteloading) {
       axiosSecure("/notes")
         .then(({ data }) => {
           setNotes(data);
+          setDataLoading(true);
         })
         .catch((err) => {
           console.log(err);
@@ -49,9 +51,35 @@ const Feed = () => {
 
   return (
     <div className="w-full">
-      {notes?.map((e, i) => (
-        <NoteCard key={i} note={e} handleDelete={handleDelete} />
-      ))}
+      {dataLoading ? (
+        notes?.map((e, i) => (
+          <NoteCard key={i} note={e} handleDelete={handleDelete} />
+        ))
+      ) : (
+        // skeleton
+        <div className="w-full flex flex-col gap-12 justify-center items-center">
+          <div className="w-full flex flex-col gap-2">
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="w-full flex items-center gap-4">
+              <div className="skeleton h-4 w-10"></div>
+              <div className="skeleton h-4 w-10"></div>
+            </div>
+          </div>
+          <div className="w-full flex flex-col gap-2">
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="w-full flex items-center gap-4">
+              <div className="skeleton h-4 w-10"></div>
+              <div className="skeleton h-4 w-10"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
